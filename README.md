@@ -7,17 +7,25 @@ This repository contains the setup and code for the Digital Twins experiment as 
 
 This project demonstrates the use of digital twins and lightweight cryptography to enhance the security of IoT devices. The implementation includes setting up a Mosquitto MQTT broker, connecting Arduino sensors, using TinyJAMBU for lightweight encryption, and Eclipse Ditto for digital twin management.
 
-Features
+## Features
 Secure Communication: Utilizes the TinyJAMBU lightweight cryptographic algorithm to ensure secure data transmission.
+
 Digital Twin Integration: Facilitates the synchronization between physical IoT devices and their digital counterparts.
+
 Arduino-Based Implementation: Leverages Arduino for IoT device management and data processing.
+
 Docker Integration: Uses Docker Compose to run images and containers for the Digital Twins platform.
-Components
+
+## Components
 Arduino Code: Scripts for reading sensor data, encrypting it using TinyJAMBU, and transmitting it to the Digital Twin.
+
 Digital Twin Platform: Configuration files and scripts to set up the Digital Twin on a compatible platform using Docker.
+
 TinyJAMBU Library: Implementation of the TinyJAMBU cryptographic algorithm tailored for Arduino.
+
 Python Serial Script: Connects Arduino to the computer and handles data transmission.
-Prerequisites
+
+## Prerequisites
 Arduino board (e.g., Arduino Uno, Arduino Nano)
 Sensors (e.g., temperature, humidity)
 Computer with Arduino IDE installed
@@ -25,77 +33,72 @@ Digital Twin platform (e.g., Eclipse Ditto)
 MQTT broker (e.g., Eclipse Mosquitto)
 Docker Desktop with Docker Compose installed
 Python 3.x
-Installation
+
+## Installation
 Arduino Setup
 Install Arduino IDE:
 Download and install the Arduino IDE.
 
 Clone Repository:
-
-bash
-Copy code
 git clone https://github.com/yourusername/ArduinoSecureTwin.git
 cd ArduinoSecureTwin
 Upload Code to Arduino:
-
 Open ArduinoCode.ino in Arduino IDE.
 Connect your Arduino board to the computer.
 Select the appropriate board and port from the Tools menu.
 Upload the code to the Arduino board.
-Docker Desktop and Digital Twin Setup
+
+## Docker Desktop and Digital Twin Setup
 Install Docker Desktop:
 Download and install Docker Desktop.
 
-Start Docker Desktop:
+## Start Docker Desktop:
 Ensure Docker Desktop is running on your system.
 
-Set Up Docker Compose for Digital Twin:
+## Set Up Docker Compose for Digital Twin:
 
 Navigate to the docker directory in the repository.
-Run the following command to start the containers:
-bash
-Copy code
+Run the following command om your cmd to start the containers:
+
 docker-compose up -d
 MQTT Broker Setup
-Set Up Eclipse Mosquitto:
+
+## Set Up Eclipse Mosquitto:
 Install and configure Eclipse Mosquitto as your MQTT broker.
 
-Connect Digital Twin to MQTT:
+## Connect Digital Twin to MQTT:
 
 Configure your Digital Twin platform to connect to the MQTT broker.
 Ensure the topic subscriptions match those used in the Arduino code.
-Python Serial Script
+
+
+## Python Serial Script
 Install Python 3.x:
 Download and install Python.
 
 Install pySerial:
 Install the pySerial library using pip:
 
-bash
-Copy code
+
 pip install pyserial
 Run Python Serial Script:
 Use the provided serial_script.py to connect Arduino to the computer:
 
-bash
-Copy code
 python serial_script.py
-Usage
-Start MQTT Broker:
 
-bash
-Copy code
+## Start MQTT Broker:
+
 mosquitto
-Run Digital Twin Platform:
+
+## Run Digital Twin Platform:
 Start your Digital Twin platform using Docker and ensure it's connected to the MQTT broker.
 
-Monitor Data:
+## Monitor Data:
 View the data being transmitted from the Arduino to the Digital Twin in real-time. Verify that the data is encrypted and decrypted correctly using TinyJAMBU.
 
-TinyJAMBU Encryption and Decryption Code
-Encryption
-cpp
-Copy code
+## TinyJAMBU Encryption and Decryption Code
+## Encryption cpp
+
 #include <TinyJambu.h>
 
 void setup() {
@@ -114,8 +117,8 @@ void loop() {
     // Publish encrypted data
     client.publish(MQTT_TOPIC, encrypted_data);
 }
-Decryption
-cpp
+
+## Decryption cpp
 Copy code
 #include <TinyJambu.h>
 
